@@ -1,10 +1,38 @@
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
+const quitButton = document.getElementById("quit-btn");
+
 const questionContainerElement = document.getElementById("question-container");
 
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
 
+// Section for timer for quiz!
+let secondsLeft = 180;
+const timer = document.getElementById("timer");
+function countdownTimer() {
+  let timerInterval = setInterval(() => {
+    secondsLeft--;
+    timer.textContent = "";
+    timer.textContent = "Time: " + secondsLeft;
+    if (secondsLeft <= 0 || !selectAnswer) {
+      clearInterval(timerInterval);
+      captureUserScore();
+    }
+  }, 1000);
+}
+
+//section for High scores
+let scores = document.getElementById("scores");
+let scoresButton = document.getElementById("high-scores");
+let results = document.getElementById("results");
+let score = 0;
+
+// array for high-scores from local storage
+var scoresArray = [];
+let storedArray = JSON.parse(window.localStorage.getItem("highScores"));
+
+//Questions section
 let shuffledQuestions, currentQuestionIndex;
 
 startButton.addEventListener("click", startgame);
@@ -15,6 +43,7 @@ nextButton.addEventListener("click", () => {
 
 // start the game
 function startgame() {
+  countdownTimer();
   startButton.classList.add("hide");
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   currentQuestionIndex = 0;
@@ -36,6 +65,10 @@ function showQuestion(question) {
     button.classList.add("btn");
     if (answer.correct) {
       button.dataset.correct = answer.correct;
+      score += secondsLeft;
+    } else {
+      score -= 10;
+      secondsLeft = secondsLeft - 15;
     }
     button.addEventListener("click", selectAnswer);
     answerButtonsElement.appendChild(button);
@@ -61,8 +94,7 @@ function selectAnswer(e) {
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
   } else {
-    startButton.innerText = "Restart";
-    startButton.classList.remove("hide");
+    quitButton.classList.remove("hide");
   }
 }
 

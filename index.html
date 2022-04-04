@@ -10,13 +10,13 @@
   </head>
   <body>
     <div class="container">
+      <!-- This section is for the top of the quiz area where we will hold the place holders for a hiscores button and a timer -->
+
       <nav class="nav-bar">
-        <link id="high-scores">Hi scores</link>
-        <div id="timer">
-        <div class="timer_text">Time left</div>  
-        <div class="timer_sec">15</div>  
-        </div>
+        <button id="high-scores">Hi scores</button>
+        <div id="timer">Time left: 0</div>
       </nav>
+
       <div id="question-container" class="hide">
         <div id="question">Question</div>
         <div id="answer-buttons" class="btn-grid">
@@ -30,8 +30,10 @@
         <button id="start-btn" class="start-btn btn">Start</button>
         <button id="next-btn" class="next-btn btn hide">Next</button>
         <button id="quit-btn" class="quit-btn btn hide">Next</button>
-
       </div>
+      <!-- This section will be for the hiScores -->
+      <form id="results"></form>
+      <div id="scores"></div>
     </div>
   </body>
 </html>
