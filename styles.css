@@ -39,6 +39,18 @@ body.wrong {
   box-shadow: 0 0 10px 2px magenta;
 }
 
+.nav-bar {
+  background-color: silver;
+  gap: 10px;
+  height: 40px;
+  border-radius: 6px;
+  padding: 5px 10px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .btn-grid {
   display: grid;
   grid-template-columns: repeat(2, auto);
