@@ -81,7 +81,8 @@ body.wrong {
 }
 
 .start-btn,
-.next-btn {
+.next-btn,
+.quit-btn {
   font: size 1.5rem;
   font-weight: bold;
   padding: 10px 20px;

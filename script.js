@@ -17,7 +17,6 @@ function countdownTimer() {
     timer.textContent = "Time: " + secondsLeft;
     if (secondsLeft <= 0 || !selectAnswer) {
       clearInterval(timerInterval);
-      captureUserScore();
     }
   }, 1000);
 }
@@ -66,7 +65,7 @@ function showQuestion(question) {
     if (answer.correct) {
       button.dataset.correct = answer.correct;
       score += secondsLeft;
-    } else {
+    } else if (!answer.correct) {
       score -= 10;
       secondsLeft = secondsLeft - 15;
     }
@@ -95,6 +94,8 @@ function selectAnswer(e) {
     nextButton.classList.remove("hide");
   } else {
     quitButton.classList.remove("hide");
+    captureUserScore();
+    countdownTimer.remove();
   }
 }
 
