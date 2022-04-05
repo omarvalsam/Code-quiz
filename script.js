@@ -1,6 +1,7 @@
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
 const quitButton = document.getElementById("quit-btn");
+const submitButton = document.getElementById("submit-btn");
 
 const questionContainerElement = document.getElementById("question-container");
 
@@ -39,7 +40,9 @@ scoresButton.addEventListener("click", function () {
   results.classList.remove("hide");
 });
 
-function captureUserScore() {}
+submitButton.addEventListener("click", function () {
+  window.localStorage.setItem("highScores", JSON.stringify(score));
+});
 
 // array for high-scores from local storage
 var scoresArray = [];
@@ -115,6 +118,7 @@ function selectAnswer(e) {
       scores.classList.remove("hide");
       results.classList.remove("hide");
       scores.innerText = score;
+      submitButton.classList.remove("hide");
     });
   }
 }

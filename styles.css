@@ -80,6 +80,9 @@ body.wrong {
   --hue: var(--hue-wrong);
 }
 
+.submit-btn {
+  margin-left: 105px;
+}
 .start-btn,
 .next-btn,
 .quit-btn {
@@ -89,7 +92,8 @@ body.wrong {
 }
 
 .controls,
-.scores {
+.scores,
+.submit-btn {
   display: flex;
   justify-content: center;
   align-items: center;
