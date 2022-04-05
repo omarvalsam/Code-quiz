@@ -27,6 +27,8 @@ let scoresButton = document.getElementById("high-scores");
 let results = document.getElementById("results");
 let score = 0;
 
+function captureUserScore() {}
+
 // array for high-scores from local storage
 var scoresArray = [];
 let storedArray = JSON.parse(window.localStorage.getItem("highScores"));
@@ -92,10 +94,11 @@ function selectAnswer(e) {
   });
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
-  } else {
+  } else if (shuffledQuestions.length === 0) {
+    startButton.classList.add("hide");
     quitButton.classList.remove("hide");
+
     captureUserScore();
-    countdownTimer.remove();
   }
 }
 
