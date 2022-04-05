@@ -30,6 +30,15 @@ let scoresButton = document.getElementById("high-scores");
 let results = document.getElementById("results");
 let score = 0;
 
+scoresButton.addEventListener("click", function () {
+  startButton.classList.add("hide");
+  nextButton.classList.add("hide");
+  timer.classList.add("hide");
+  questionContainerElement.classList.add("hide");
+  scores.classList.remove("hide");
+  results.classList.remove("hide");
+});
+
 function captureUserScore() {}
 
 // array for high-scores from local storage
@@ -100,6 +109,13 @@ function selectAnswer(e) {
   } else {
     quitButton.classList.remove("hide");
     // stopTimer();
+    quitButton.addEventListener("click", function () {
+      quitButton.classList.add("hide");
+      questionContainerElement.classList.add("hide");
+      scores.classList.remove("hide");
+      results.classList.remove("hide");
+      scores.innerText = score;
+    });
   }
 }
 

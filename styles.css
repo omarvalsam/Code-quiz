@@ -88,7 +88,8 @@ body.wrong {
   padding: 10px 20px;
 }
 
-.controls {
+.controls,
+.scores {
   display: flex;
   justify-content: center;
   align-items: center;
