@@ -15,10 +15,16 @@ function countdownTimer() {
     secondsLeft--;
     timer.textContent = "";
     timer.textContent = "Time: " + secondsLeft;
-    if (secondsLeft <= 0 || !selectAnswer) {
+    if (
+      secondsLeft <= 0 ||
+      shuffledQuestions.length > currentQuestionIndex + 1
+    ) {
       clearInterval(timerInterval);
     }
   }, 1000);
+}
+function stopTimer() {
+  clearInterval(countdownTimer);
 }
 
 //section for High scores
@@ -94,11 +100,9 @@ function selectAnswer(e) {
   });
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
-  } else if (shuffledQuestions.length === 0) {
-    startButton.classList.add("hide");
+  } else {
     quitButton.classList.remove("hide");
-
-    captureUserScore();
+    stopTimer();
   }
 }
 
@@ -131,37 +135,37 @@ const questions = [
       { text: "Arianna", correct: true },
     ],
   },
-  {
-    question: "if a woodchuck could chuck wood how much wood would he chuck?",
-    answers: [
-      { text: "WHO CARES!", correct: false },
-      { text: "I DUNNO?!", correct: false },
-      { text: "the limit does not exist", correct: true },
-      { text: "2", correct: false },
-    ],
-  },
-  {
-    question: "Is coding fun?",
-    answers: [
-      { text: "I DUNNO?!", correct: false },
-      { text: "I GUESSSSS", correct: false },
-      { text: "yes", correct: true },
-    ],
-  },
-  {
-    question: "is the timer on this game making you nervous?",
-    answers: [
-      { text: "yes", correct: true },
-      { text: "no", correct: true },
-    ],
-  },
-  {
-    question: "whats the best type of video game genre?",
-    answers: [
-      { text: "ALL OF THE ABOVE !!!", correct: true },
-      { text: "FIGHTING", correct: false },
-      { text: "RPG", correct: false },
-      { text: "FPS", correct: false },
-    ],
-  },
+  // {
+  //   question: "if a woodchuck could chuck wood how much wood would he chuck?",
+  //   answers: [
+  //     { text: "WHO CARES!", correct: false },
+  //     { text: "I DUNNO?!", correct: false },
+  //     { text: "the limit does not exist", correct: true },
+  //     { text: "2", correct: false },
+  //   ],
+  // },
+  // {
+  //   question: "Is coding fun?",
+  //   answers: [
+  //     { text: "I DUNNO?!", correct: false },
+  //     { text: "I GUESSSSS", correct: false },
+  //     { text: "yes", correct: true },
+  //   ],
+  // },
+  // {
+  //   question: "is the timer on this game making you nervous?",
+  //   answers: [
+  //     { text: "yes", correct: true },
+  //     { text: "no", correct: true },
+  //   ],
+  // },
+  // {
+  //   question: "whats the best type of video game genre?",
+  //   answers: [
+  //     { text: "ALL OF THE ABOVE !!!", correct: true },
+  //     { text: "FIGHTING", correct: false },
+  //     { text: "RPG", correct: false },
+  //     { text: "FPS", correct: false },
+  //   ],
+  // },
 ];
