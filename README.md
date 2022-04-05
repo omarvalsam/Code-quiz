@@ -1,5 +1,24 @@
 # Code-quiz
 
+<img src="./assets/start.png" width="350" height="300">
+<img src="./assets/questions.png" width="350" height="300">
+
+## _Description_
+
+This app was meant as an intro to using element selectors and appending and also local storage basics.
+
+### technologies used
+
+- Javascript
+- CSS
+- HTML
+
+# deployed application Link
+
+https://omarvalsam.github.io/Code-quiz/
+
+# Goals application end point
+
 WHEN I click the start button
 
 - THEN a timer starts and I am presented with a question
