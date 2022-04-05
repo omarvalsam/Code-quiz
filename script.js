@@ -17,14 +17,11 @@ function countdownTimer() {
     timer.textContent = "Time: " + secondsLeft;
     if (
       secondsLeft <= 0 ||
-      shuffledQuestions.length > currentQuestionIndex + 1
+      shuffledQuestions.length == currentQuestionIndex + 1
     ) {
       clearInterval(timerInterval);
     }
   }, 1000);
-}
-function stopTimer() {
-  clearInterval(countdownTimer);
 }
 
 //section for High scores
@@ -102,7 +99,7 @@ function selectAnswer(e) {
     nextButton.classList.remove("hide");
   } else {
     quitButton.classList.remove("hide");
-    stopTimer();
+    // stopTimer();
   }
 }
 
